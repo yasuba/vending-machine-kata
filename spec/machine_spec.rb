@@ -40,14 +40,10 @@ describe Vending_Machine do
     expect{vending_machine.buy(chocolate, 50)}.to raise_error
   end
 
-  it 'should check the money paid matches the price of the product sold' do
+  it "should only keep money to the value of the product's price" do
     vending_machine.buy(chocolate, 100)
-    expect(vending_machine.give_change(chocolate, 100)).to eq(50)
+    expect(vending_machine.total).to eq(3350)
   end
 
-  xit 'correct change for another product' do
-    vending_machine.buy(crisps, pound)
-    expect(vending_machine.give_change(crisps, pound)).to eq(40)
-  end
 
 end
