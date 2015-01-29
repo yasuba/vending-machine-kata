@@ -8,7 +8,7 @@ class Vending_Machine
   end
 
   def float
-    @float ||= {1 => 100, 2 => 100, 5 => 100, 10 => 50, 50 => 10, 100 => 5, 200 => 5}
+    @float ||= {200 => 5, 100 => 5, 50 => 10, 10 => 50, 5 => 100, 2 => 100, 1 => 100}
   end
 
   def total
@@ -44,14 +44,17 @@ class Vending_Machine
 
   def buy(product, coins)
     raise "That item is sold out" if quantity(product) == 0
-    give_change(product,coins)
     products.reject!{|p| p.name == product.name}
     @float.update(@float) {|k,v| coins == k ? v+1 : v }
+    give_change(product,coins)
   end
 
   def give_change(product, coins)
     change = coins - product.price
-    @float.update(@float) {|k,v| change == k ? v-1 : v }
+    @float.merge!(@float) do |k, v|
+      (change / k).times {v -= 1; change -= k}
+      v
+    end
   end
 
 end
