@@ -8,7 +8,7 @@ class Vending_Machine
   end
 
   def float
-    @float ||= {200 => 5, 100 => 5, 50 => 10, 10 => 50, 5 => 100, 2 => 100, 1 => 100}
+    @float ||= {200 => 5, 100 => 5, 50 => 10, 20 => 50, 10 => 50, 5 => 100, 2 => 100, 1 => 100}
   end
 
   def total
@@ -24,12 +24,11 @@ class Vending_Machine
   end
 
   def products
-    @products ||= [Product::CHOCOLATE, Product::CRISPS]
+    @products ||= [Product::TWIRL, Product::KITKAT, Product::WALKERS, Product::MCCOYS, Product::SPACEINVADERS, Product::COLA, Product::EVIAN, Product::GUM]
   end
 
   def load_products(product)
     products << product
-    # @products.update(@products){|k,v| amount+v}
   end
 
   def quantity(product)
@@ -51,14 +50,16 @@ class Vending_Machine
 
   def give_change(product, coins)
     change = coins - product.price
+    diff = []
     @float.merge!(@float) do |k, v|
-      (change / k).times {v -= 1; change -= k}
+      (change / k).times {v -= 1; diff << k; change -= k}
       v
     end
+    diff
   end
 
   def add_coins
-    @float = {200 => 5, 100 => 5, 50 => 10, 10 => 50, 5 => 100, 2 => 100, 1 => 100}
+    @float = {200 => 5, 100 => 5, 50 => 10, 20 => 50, 10 => 50, 5 => 100, 2 => 100, 1 => 100}
   end
 
 end
