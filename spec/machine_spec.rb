@@ -50,4 +50,8 @@ describe Vending_Machine do
     expect(vending_machine.float).to eq({200 => 6, 100 => 4, 50 => 9, 10 => 50, 5 => 100, 2 => 100, 1 => 100})
   end
 
+  it 'should be able to reset the float' do
+    expect(vending_machine.add_coins).to eq({200 => 5, 100 => 5, 50 => 10, 10 => 50, 5 => 100, 2 => 100, 1 => 100})
+  end
+
 end

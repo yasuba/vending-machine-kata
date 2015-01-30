@@ -57,4 +57,8 @@ class Vending_Machine
     end
   end
 
+  def add_coins
+    @float = {200 => 5, 100 => 5, 50 => 10, 10 => 50, 5 => 100, 2 => 100, 1 => 100}
+  end
+
 end
