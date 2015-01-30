@@ -8,5 +8,5 @@ There should also be a way of reloading both products and change at a later poin
 
 ###Technologies
 
-*Ruby
-*RSpec
+* Ruby
+* RSpec
