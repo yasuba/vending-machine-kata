@@ -34,6 +34,10 @@ describe Vending_Machine do
     expect(vending_machine.products).to_not include(chocolate)
   end
 
+  it 'can vend products once bought' do
+    expect(vending_machine.buy('chocolate', 50)).to eq(chocolate)
+  end
+
   it 'once a product is sold, can update its float' do
     vending_machine.buy('chocolate', 50)
     expect(vending_machine.float[50]).to eq(11)

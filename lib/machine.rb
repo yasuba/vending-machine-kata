@@ -39,10 +39,10 @@ class Vending_Machine
 
   def buy(product, coins)
     raise "That item is sold out" if quantity(product) == 0
-    # give_change(product,coins)
-    products.reject!{|p| p.name == product}
     float.update(float) {|k,v| coins == k ? v+1 : v }
-
+    purchase = products.select{|p| p.name == product}
+    products.reject!{|p| p.name == product}
+    purchase[0]
   end
 
   def give_change(product, coins)
