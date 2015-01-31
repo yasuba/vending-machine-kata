@@ -13,10 +13,9 @@ class VendingMachine < Sinatra::Base
 
   post '/' do
     product = params[:product]
-    coins = params[:coins]
-    machine = Vending_Machine.new
-    p machine.products[1].name
-    # products = machine.buy(product, coins)
+    coins = [params[:twohundred].to_i, params[:hundred].to_i, params[:fifty].to_i, params[:twenty].to_i, params[:ten].to_i, params[:five].to_i, params[:two].to_i, params[:one].to_i].inject(:+)
+    @machine = Vending_Machine.new
+    @items = @machine.buy(product, coins)
     erb :index
   end
 
