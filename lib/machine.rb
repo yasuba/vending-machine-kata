@@ -33,23 +33,20 @@ class Vending_Machine
 
   def quantity(product)
     quantity = []
-    products.each {|p| p.name == product.name ? quantity << p : nil}
+    products.each {|p| p.name == product ? quantity << p : nil}
     quantity.count
-  end
-
-  def sorting(product)
-    @s = products.select {|p| p.name == product.name}
   end
 
   def buy(product, coins)
     raise "That item is sold out" if quantity(product) == 0
-    products.reject!{|p| p.name == product.name}
-    @float.update(@float) {|k,v| coins == k ? v+1 : v }
     give_change(product,coins)
+    products.reject!{|p| p.name == product}
+    @float.update(@float) {|k,v| coins == k ? v+1 : v }
   end
 
   def give_change(product, coins)
-    change = coins - product.price
+    prod = products.select {|p| p.name == product }
+    change = coins - prod[0].price
     diff = []
     @float.merge!(@float) do |k, v|
       (change / k).times {v -= 1; diff << k; change -= k}

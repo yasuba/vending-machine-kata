@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vending Machine</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <section id="choose_item">
+    <h1>Vending Machine</h1>
+    <form action="/" method="post">
+  Buy <input type="checkbox" name="product" value="kitkat">KitKat
+      <input type="checkbox" name="coins" value="200">&pound;2.00
+      <input type="checkbox" name="coins" value="100">&pound;1.00
+      <input type="checkbox" name="coins" value="50">50p
+      <input type="checkbox" name="coins" value="20">20p
+      <input type="checkbox" name="coins" value="10">10p
+      <input type="checkbox" name="coins" value="5">5p
+      <input type="checkbox" name="coins" value="2">2p
+      <input type="checkbox" name="coins" value="1">1p
+      <input type="submit" value="Buy" class="buy">
+    </form>
+  </section>
+  <section id="items">
+    <img src="images/kitkat.png" alt="KitKat">
+  </section>
+
+<script src="/javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script>
+  $('.buy').on('click', function(){
+
+    $('img').show();
+  })
+</script>
+</body>
+</html>
+
