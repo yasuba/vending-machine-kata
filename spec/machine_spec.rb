@@ -4,8 +4,8 @@ require 'product'
 describe Vending_Machine do
 
   let(:vending_machine) {Vending_Machine.new}
-  let(:chocolate) {Product.new('chocolate', 50)}
-  let(:crips) {Product.new('crisps', 60)}
+  let(:chocolate) {Product.new('chocolate', 50, './images/kitkat.png')}
+  let(:crips) {Product.new('crisps', 60, './images/kitkat.png')}
 
   before(:each) do
     vending_machine.load_products(chocolate)

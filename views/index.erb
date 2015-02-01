@@ -9,7 +9,7 @@
   <section id="choose_item">
     <h1>Vending Machine</h1>
     <form action="/" method="post">
-  Buy <input type="checkbox" name="product" value="kitkat">KitKat
+  Buy <input type="checkbox" id="kitkat" name="product" value="kitkat">KitKat
   Buy <input type="checkbox" name="product" value="twirl">Twirl
       <input type="checkbox" name="twohundred" value="200">&pound;2.00
       <input type="checkbox" name="hundred" value="100">&pound;1.00
@@ -23,21 +23,12 @@
     </form>
   </section>
   <section id="items">
-    <img src="images/kitkat.png" alt="KitKat">
+    <% unless params.empty? %>
+      <img src="<%= @items.image %>">
+      <%= @change %>
+    <% end %>
   </section>
-
-  <% if !params.empty? %>
-   <%= @items %>
-   <%= @change %>
-  <% end %>
-
-<script src="/javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
-<script>
-  $('.buy').on('click', function(){
-
-    $('img').show();
-  })
-</script>
+  <script src="/javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
 </body>
 </html>
 

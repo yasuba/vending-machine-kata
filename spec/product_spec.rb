@@ -2,7 +2,7 @@ require 'product'
 
 describe Product do
 
-	let(:chocolate) {Product.new('chocolate', 50)}
+	let(:chocolate) {Product.new('chocolate', 50, './images/kitkat.png')}
 
 	it 'should have a name' do
 		expect(chocolate.name).to eq('chocolate')

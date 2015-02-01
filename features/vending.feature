@@ -5,7 +5,7 @@ Feature: Buying
 
 Scenario: A shopper buys an item
   Given I am on the homepage
-  When I click "KitKat"
-  And I check "200"
+  When I check "kitkat"
+  And I check "twohundred"
   When I press "Buy"
   Then I should receive my item
