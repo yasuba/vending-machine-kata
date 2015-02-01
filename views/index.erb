@@ -6,11 +6,24 @@
   <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <section id="choose_item">
-    <h1>Vending Machine</h1>
-    <form action="/" method="post">
-  Buy <input type="checkbox" id="kitkat" name="product" value="kitkat">KitKat
-  Buy <input type="checkbox" name="product" value="twirl">Twirl
+  <h1>Vending Machine</h1>
+  <form action="/" method="post">
+    <section id="choose_item">
+    <div>
+      <img alt="KitKat" src="images/kitkat.png" height="50">
+      <p>KitKat</p>
+    </div>
+    <div>
+      <img alt="Twirl" src="images/twirl.png" height="50">
+      <p>Twirl</p>
+    </div>
+    <div>
+      <img alt="Cola" src="images/coke.png" height="50">
+      <p>Cola</p>
+    </div>
+    </section>
+    <section id="add_coins">
+      <input type="text" name="product">
       <input type="checkbox" name="twohundred" value="200">&pound;2.00
       <input type="checkbox" name="hundred" value="100">&pound;1.00
       <input type="checkbox" name="fifty" value="50">50p
@@ -20,12 +33,35 @@
       <input type="checkbox" name="two" value="2">2p
       <input type="checkbox" name="one" value="1">1p
       <input type="submit" value="Buy" class="buy">
-    </form>
-  </section>
+    </section>
+  </form>
   <section id="items">
     <% unless params.empty? %>
-      <img src="<%= @items.image %>">
-      <%= @change %>
+      <img class="product" src="<%= @items.image %>">
+      <% if @change.include?(200) %>
+        <img id="twopound" src="/images/twopound.png" height="100">
+      <% end %>
+      <% if @change.include?(100) %>
+        <img id="pound" src="/images/pound.png" height="100">
+      <% end %>
+      <% if @change.include?(50) %>
+        <img id="fifty" src="/images/fifty.png" height="100">
+      <% end %>
+      <% if @change.include?(20) %>
+        <img id="twenty" src="/images/twenty.png" height="100">
+      <% end %>
+      <% if @change.include?(10) %>
+        <img id="ten" src="/images/ten.png" height="100">
+      <% end %>
+      <% if @change.include?(5) %>
+        <img id="five" src="/images/five.png" height="100">
+      <% end %>
+      <% if @change.include?(2) %>
+        <img id="two" src="/images/two.png" height="100">
+      <% end %>
+      <% if @change.include?(1) %>
+        <img id="one" src="/images/one.png" height="100">
+      <% end %>
     <% end %>
   </section>
   <script src="/javascript/jquery-2.1.1.min.js" type="text/javascript"></script>

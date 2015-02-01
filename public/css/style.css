@@ -7,3 +7,20 @@ h1 {
   color: #ffd7a7;
   font-size: 3em;
 }
+
+img {
+  display: block;
+}
+
+div {
+  float: left;
+  margin-bottom: 30px;
+}
+
+#add_coins {
+  float: left;
+}
+
+#items {
+  clear: left;
+}

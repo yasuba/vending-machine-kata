@@ -38,6 +38,7 @@ class Vending_Machine
   end
 
   def buy(product, coins)
+    product = product.downcase
     raise "That item is sold out" if quantity(product) == 0
     float.update(float) {|k,v| coins == k ? v+1 : v }
     purchase = products.select{|p| p.name == product}
@@ -46,6 +47,7 @@ class Vending_Machine
   end
 
   def give_change(product, coins)
+    product = product.downcase
     prod = products.select {|p| p.name == product }
     change = coins - prod[0].price
     diff = []
