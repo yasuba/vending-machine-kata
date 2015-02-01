@@ -17,10 +17,24 @@ div {
   margin-bottom: 30px;
 }
 
+#spaceraider {
+  clear: left;
+}
+
 #add_coins {
   float: left;
 }
 
 #items {
   clear: left;
+  float: left;
 }
+
+#coins {
+  float: left;
+}
+
+#coins img {
+  display: inline;
+}
+

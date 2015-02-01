@@ -5,14 +5,14 @@ Feature: Buying
 
 Scenario: A shopper buys an item
   Given I am on the homepage
-  When I fill in "product" with "cola"
+  When I check "cola"
   And I check "hundred"
   When I press "Buy"
   Then I should receive my item
 
 Scenario: A shopper receives change
   Given I am on the homepage
-  When I fill in "product" with "twirl"
+  When I check "twirl"
   And I check "twohundred"
   When I press "Buy"
   Then I should receive my change

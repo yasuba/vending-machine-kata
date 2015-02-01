@@ -10,20 +10,31 @@
   <form action="/" method="post">
     <section id="choose_item">
     <div>
-      <img alt="KitKat" src="images/kitkat.png" height="50">
-      <p>KitKat</p>
+      <img alt="KitKat" src="images/kitkat.png" height="50"><input type="checkbox" id="kitkat" name="product" value="kitkat">
     </div>
     <div>
-      <img alt="Twirl" src="images/twirl.png" height="50">
-      <p>Twirl</p>
+      <img alt="Twirl" src="images/twirl.png" height="50"><input type="checkbox" id="twirl" name="product" value="twirl">
     </div>
     <div>
-      <img alt="Cola" src="images/coke.png" height="50">
-      <p>Cola</p>
+      <img alt="Cola" src="images/coke.png" height="50"><input type="checkbox" id="cola" name="product" value="cola">
+    </div>
+    <div>
+      <img alt="Walkers" src="images/walkers.png" height="50"><input type="checkbox" id="walkers" name="product" value="walkers">
+    </div>
+    <div id="spaceraider">
+      <img alt="Space Raiders" src="images/spaceraiders.png" height="50"><input type="checkbox" id="spaceraiders" name="product" value="spaceraiders">
+    </div>
+    <div>
+      <img alt="McCoys" src="images/mccoys.png" height="50"><input type="checkbox" id="mccoys" name="product" value="mccoys">
+    </div>
+    <div>
+      <img alt="Sprite" src="images/sprite.png" height="50"><input type="checkbox" id="sprite" name="product" value="sprite">
+    </div>
+    <div>
+      <img alt="Gum" src="images/gum.png" height="50"><input type="checkbox" id="gum" name="product" value="gum">
     </div>
     </section>
     <section id="add_coins">
-      <input type="text" name="product">
       <input type="checkbox" name="twohundred" value="200">&pound;2.00
       <input type="checkbox" name="hundred" value="100">&pound;1.00
       <input type="checkbox" name="fifty" value="50">50p
@@ -38,6 +49,8 @@
   <section id="items">
     <% unless params.empty? %>
       <img class="product" src="<%= @items.image %>">
+  </section>
+  <section id="coins">
       <% if @change.include?(200) %>
         <img id="twopound" src="/images/twopound.png" height="100">
       <% end %>

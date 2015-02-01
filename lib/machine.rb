@@ -24,7 +24,7 @@ class Vending_Machine
   end
 
   def products
-    @products ||= [Product::TWIRL, Product::KITKAT, Product::WALKERS, Product::MCCOYS, Product::SPACEINVADERS, Product::COLA, Product::EVIAN, Product::GUM]
+    @products ||= [Product::TWIRL, Product::KITKAT, Product::WALKERS, Product::MCCOYS, Product::SPACERAIDERS, Product::COLA, Product::SPRITE, Product::GUM]
   end
 
   def load_products(product)
@@ -38,7 +38,6 @@ class Vending_Machine
   end
 
   def buy(product, coins)
-    product = product.downcase
     raise "That item is sold out" if quantity(product) == 0
     float.update(float) {|k,v| coins == k ? v+1 : v }
     purchase = products.select{|p| p.name == product}
@@ -47,7 +46,6 @@ class Vending_Machine
   end
 
   def give_change(product, coins)
-    product = product.downcase
     prod = products.select {|p| p.name == product }
     change = coins - prod[0].price
     diff = []
@@ -61,12 +59,5 @@ class Vending_Machine
   def add_coins
     float = {200 => 5, 100 => 5, 50 => 10, 20 => 50, 10 => 50, 5 => 100, 2 => 100, 1 => 100}
   end
-
-  # def currency_convert(coins)
-  #   coins.each do |coin|
-  #     p "%.2f" % coin
-  #   end
-  #   coins
-  # end
 
 end
