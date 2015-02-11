@@ -52,9 +52,8 @@ describe Vending_Machine do
   end
 
   it 'should return correct change after the purchase' do
-    vending_machine.give_change('chocolate', 'crisps', 200)
-    vending_machine.buy('chocolate', 'crisps', 200)
-    expect(vending_machine.float).to eq({200 => 6, 100 => 5, 50 => 9, 20 => 48, 10 => 50, 5 => 100, 2 => 100, 1 => 100})
+    expect(vending_machine.give_change('chocolate', 'crisps', 200)).to eq([50, 20, 20])
+    expect(vending_machine.float).to eq({200 => 5, 100 => 5, 50 => 9, 20 => 48, 10 => 50, 5 => 100, 2 => 100, 1 => 100})
   end
 
   it 'should be able to reset the float' do
