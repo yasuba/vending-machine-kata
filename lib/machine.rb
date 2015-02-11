@@ -38,6 +38,7 @@ class Vending_Machine
   end
 
   def buy(*args, coins)
+    give_change(args, coins)
     purchase = []
     float.update(float) {|k,v| coins == k ? v+1 : v }
     args.each do |product|
@@ -49,6 +50,7 @@ class Vending_Machine
   end
 
   def give_change(*args, coins)
+    args = args.flatten
     diff = []
     prod = []
     args.each do |product|

@@ -46,7 +46,6 @@ describe Vending_Machine do
   end
 
   it "should only keep money to the value of the product's price" do
-    vending_machine.give_change('chocolate', 100)
     vending_machine.buy('chocolate', 100)
     expect(vending_machine.total).to eq(4350)
   end
