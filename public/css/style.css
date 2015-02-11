@@ -9,12 +9,22 @@ h1 {
 }
 
 img {
-  display: block;
+  display: inline;
 }
 
 div {
-  float: left;
+  display: inline;
   margin-bottom: 30px;
+}
+
+input {
+  display: block;
+}
+
+#choose_item {
+  border: 1px solid grey;
+  width: 15%;
+  padding: 3%;
 }
 
 #spaceraider {

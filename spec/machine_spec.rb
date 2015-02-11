@@ -4,8 +4,8 @@ require 'product'
 describe Vending_Machine do
 
   let(:vending_machine) {Vending_Machine.new}
-  let(:chocolate) {Product.new('chocolate', 50, './images/kitkat.png')}
-  let(:crips) {Product.new('crisps', 60, './images/kitkat.png')}
+  let(:chocolate) {double :product, name: 'chocolate', price: 50,  image: './images/kitkat.png'}
+  let(:crisps) {double :product, name:'crisps', price: 60, image: './images/kitkat.png'}
 
   before(:each) do
     vending_machine.load_products(chocolate)
@@ -62,6 +62,12 @@ describe Vending_Machine do
 
   it 'should be able to reset the float' do
     expect(vending_machine.add_coins).to eq({200 => 5, 100 => 5, 50 => 10, 20 => 50, 10 => 50, 5 => 100, 2 => 100, 1 => 100})
+  end
+
+  it 'can sell more than one product at a time' do
+    vending_machine.load_products(crisps)
+    vending_machine.buy('chocolate', 'crisps', 200)
+    expect(vending_machine.products).to_not include(chocolate && crisps)
   end
 
 end
