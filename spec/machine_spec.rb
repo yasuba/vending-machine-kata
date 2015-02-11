@@ -9,6 +9,7 @@ describe Vending_Machine do
 
   before(:each) do
     vending_machine.load_products(chocolate)
+    vending_machine.load_products(crisps)
   end
 
   it 'should be able to load coins' do
@@ -34,10 +35,6 @@ describe Vending_Machine do
     expect(vending_machine.products).to_not include(chocolate)
   end
 
-  it 'can vend products once bought' do
-    expect(vending_machine.buy('chocolate', 50)).to eq(chocolate)
-  end
-
   it 'once a product is sold, can update its float' do
     vending_machine.buy('chocolate', 50)
     expect(vending_machine.float[50]).to eq(11)
@@ -55,9 +52,9 @@ describe Vending_Machine do
   end
 
   it 'should return correct change after the purchase' do
-    vending_machine.give_change('chocolate', 200)
-    vending_machine.buy('chocolate', 200)
-    expect(vending_machine.float).to eq({200 => 6, 100 => 4, 50 => 9, 20 => 50, 10 => 50, 5 => 100, 2 => 100, 1 => 100})
+    vending_machine.give_change('chocolate', 'crisps', 200)
+    vending_machine.buy('chocolate', 'crisps', 200)
+    expect(vending_machine.float).to eq({200 => 6, 100 => 5, 50 => 9, 20 => 48, 10 => 50, 5 => 100, 2 => 100, 1 => 100})
   end
 
   it 'should be able to reset the float' do
@@ -65,9 +62,12 @@ describe Vending_Machine do
   end
 
   it 'can sell more than one product at a time' do
-    vending_machine.load_products(crisps)
     vending_machine.buy('chocolate', 'crisps', 200)
     expect(vending_machine.products).to_not include(chocolate && crisps)
+  end
+
+  it 'can vend products once bought' do
+    expect(vending_machine.buy('chocolate', 'crisps', 200)).to eq([chocolate, crisps])
   end
 
 end
