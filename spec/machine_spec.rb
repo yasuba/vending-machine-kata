@@ -56,7 +56,8 @@ describe Vending_Machine do
   end
 
   it 'should be able to reset the float' do
-    expect(vending_machine.add_coins).to eq({200 => 5, 100 => 5, 50 => 10, 20 => 50, 10 => 50, 5 => 100, 2 => 100, 1 => 100})
+    vending_machine.reset_float
+    expect(vending_machine.float).to eq({200 => 5, 100 => 5, 50 => 10, 20 => 50, 10 => 50, 5 => 100, 2 => 100, 1 => 100})
   end
 
   it 'can sell more than one product at a time' do

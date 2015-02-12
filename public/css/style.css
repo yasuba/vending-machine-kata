@@ -22,9 +22,10 @@ input {
 }
 
 #choose_item {
-  border: 1px solid grey;
-  width: 15%;
-  padding: 3%;
+  padding: 5% 5% 10%;
+  background-image: url('../images/vend.png');
+  background-size: 500px 720px;
+  background-repeat: no-repeat;
 }
 
 #spaceraider {
@@ -32,7 +33,8 @@ input {
 }
 
 #add_coins {
-  float: left;
+/*  float: left;
+  margin-left: 60%;*/
 }
 
 #items {

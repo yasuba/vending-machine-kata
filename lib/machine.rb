@@ -2,21 +2,15 @@ require './lib/product'
 
 class Vending_Machine
 
+  attr_accessor :float
+
   def initialize
-    float
+    reset_float
     products
   end
 
-  def float
-    @float ||= {200 => 5, 100 => 5, 50 => 10, 20 => 50, 10 => 50, 5 => 100, 2 => 100, 1 => 100}
-  end
-
   def total
-    total = []
-    float.each_pair do |k, v|
-      total << k * v
-    end
-    total.inject(:+)
+    float.map {|k, v| k * v}.inject(:+)
   end
 
   def load_coins(coins,amount)
@@ -32,16 +26,14 @@ class Vending_Machine
   end
 
   def quantity(product)
-    quantity = []
-    products.each {|p| p.name == product ? quantity << p : nil}
-    quantity.count
+    products.select {|p| p if p.name == product}.count
   end
 
   def buy(*args, coins)
-    give_change(args, coins)
+    # give_change(args, coins)
     purchase = []
     float.update(float) {|k,v| coins == k ? v+1 : v }
-    args.each do |product|
+    args.compact.each do |product|
       raise "That item is sold out" if quantity(product) == 0
       purchase << products.select{|p| p.name == product}
       products.reject!{|p| p.name == product}
@@ -50,7 +42,7 @@ class Vending_Machine
   end
 
   def give_change(*args, coins)
-    args = args.flatten
+    args = args.compact.flatten
     diff = []
     prod = []
     args.each do |product|
@@ -64,8 +56,8 @@ class Vending_Machine
     diff
   end
 
-  def add_coins
-    float = {200 => 5, 100 => 5, 50 => 10, 20 => 50, 10 => 50, 5 => 100, 2 => 100, 1 => 100}
+  def reset_float
+    self.float = {200 => 5, 100 => 5, 50 => 10, 20 => 50, 10 => 50, 5 => 100, 2 => 100, 1 => 100}
   end
 
 end
