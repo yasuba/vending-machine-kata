@@ -10,6 +10,7 @@
   <h1>Vending Machine</h1>
   <form action="/" method="post">
     <div id="choose_item" class="col-sm-7 col-md-offset-1">
+    <section id="column1">
     <div>
       <img alt="KitKat" src="<%= @source %>" height="50"><input type="checkbox" id="kitkat" name="kitkat" value="kitkat">
     </div>
@@ -22,18 +23,21 @@
     <div>
       <img alt="Walkers" src="images/walkers.png" height="50"><input type="checkbox" id="walkers" name="walkers" value="walkers">
     </div>
+    </section>
+    <section id="column2">
     <div id="spaceraider">
       <img alt="Space Raiders" src="images/spaceraiders.png" height="50"><input type="checkbox" id="spaceraiders" name="product" value="spaceraiders">
     </div>
     <div>
-      <img alt="McCoys" src="images/mccoys.png" height="50"><input type="checkbox" id="mccoys" name="product" value="mccoys">
+      <img alt="McCoys" src="images/mccoys.png" height="50"><input type="checkbox" id="mccoys" name="mccoys" value="mccoys">
     </div>
     <div>
-      <img alt="Sprite" src="images/sprite.png" height="50"><input type="checkbox" id="sprite" name="product" value="sprite">
+      <img alt="Sprite" src="images/sprite.png" height="50"><input type="checkbox" id="sprite" name="sprite" value="sprite">
     </div>
     <div>
-      <img alt="Gum" src="images/gum.png" height="50"><input type="checkbox" id="gum" name="product" value="gum">
+      <img alt="Gum" src="images/gum.png" height="50"><input type="checkbox" id="gum" name="gum" value="gum">
     </div>
+    </section>
     </div>
     <div id="add_coins" class="col-sm-4">
       <input type="checkbox" name="twohundred" value="200">&pound;2.00
@@ -84,6 +88,9 @@
       <% end %>
     <% end %>
   </section>
+
+  <%= @total %>
+
   <script src="/javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
   <script src="/javascript/bootstrap.min.js" type="text/javascript"></script>
   <script>

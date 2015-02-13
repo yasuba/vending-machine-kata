@@ -30,7 +30,6 @@ class Vending_Machine
   end
 
   def buy(*args, coins)
-    # give_change(args, coins)
     purchase = []
     float.update(float) {|k,v| coins == k ? v+1 : v }
     args.compact.each do |product|

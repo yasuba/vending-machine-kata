@@ -27,8 +27,15 @@ class VendingMachine < Sinatra::Base
     machine = Vending_Machine.new
     @change = machine.give_change(params[:kitkat], params[:twirl], params[:cola], params[:walkers], coins)
     @items = machine.buy(params[:kitkat], params[:twirl], params[:cola], params[:walkers], coins)
+    @total = machine.total
     erb :index
   end
+
+  # post '/admin' do
+  #   machine = Vending_Machine.new
+  #   @total = machine.total
+  #   erb :admin
+  # end
 
 
 run! if app_file == $0

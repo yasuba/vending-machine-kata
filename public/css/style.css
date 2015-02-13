@@ -22,10 +22,19 @@ input {
 }
 
 #choose_item {
-  padding: 5% 5% 10%;
+  padding: 8% 8% 30%;
   background-image: url('../images/vend.png');
   background-size: 500px 720px;
   background-repeat: no-repeat;
+}
+
+#column1 {
+  float:left;
+}
+
+#column2 {
+  float:left;
+  margin-left: 20%;
 }
 
 #spaceraider {
