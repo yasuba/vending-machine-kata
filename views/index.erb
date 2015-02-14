@@ -55,7 +55,7 @@
       <section id="items">
       <% @items.each do |item| %>
         <% if item.image.empty? %>
-          <img class="product" src="<%= @source %>">
+          <img class="product" src="<%= @source %>" width="200">
         <% else %>
           <img class="product" src="<%= item.image %>">
         <% end %>
